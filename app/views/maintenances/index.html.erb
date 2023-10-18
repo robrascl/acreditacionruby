@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mantenimientos</h1>
+
+
+<%= link_to image_tag('addc.svg'), new_maintenance_path, title: "New maintenance" %>
+
+<div id="maintenances">
+        <table class="table table-bordered border-primary">
+
+          <thead>
+            <tr>
+              <th scope="col" style="width: 50px;" >Id</th>
+              <th scope="col" style="width: 125px;">Tipo Motor </th>
+              <th scope="col"style="width: 180px;">Tipo Mantenimiento</th>
+              <th scope="col"style="width: 150px;">Nombre motor</th>
+              <th scope="col"style="width: 50px;">Foto</th>
+              <th scope="col"style="width: 50px;"> </th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+
+  <% @maintenances.each do |maintenance| %>
+                <tr>
+                    <td><%= maintenance.id %></td>
+                    <td><%=  maintenance.typeequipment.name %></td>
+                    <td><%= maintenance.maintenancetype.name %></td>
+                    <td><%= maintenance.engine.name %></td>
+                    <td>
+                    
+                      <% if maintenance.engine.photo.attached?  %>
+                          <%=  image_tag maintenance.engine.photo, size: "40x40"  %>
+                        <% else %>
+                          <%=  image_tag("#{maintenance.engine.typeequipment_id}.jpg", size: "40x40") %>
+                      <% end %>
+                    </td>
+                    <td> <%= link_to image_tag('view20.svg'), maintenance , title: "Ver Mantenimiento" %> </td>
+                </tr>
+  <% end %>
+              <tr> 
+                    
+                    <td colspan="4" >  
+                          <div class="pag-bar">
+                                <%== pagy_bootstrap_nav(@pagy) %>
+                          </div>
+                    </td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+

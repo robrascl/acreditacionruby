@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  datedoit: 2023-09-05
+  emailtech: MyString
+  dateman: 2023-09-05
+  engine: one
+  typeequipment: one
+  maintenancetype: one
+  city: one
+  usedmaterial: one
+
+two:
+  datedoit: 2023-09-05
+  emailtech: MyString
+  dateman: 2023-09-05
+  engine: two
+  typeequipment: two
+  maintenancetype: two
+  city: two
+  usedmaterial: two

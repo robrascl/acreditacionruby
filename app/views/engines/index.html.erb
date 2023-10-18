@@ -1,0 +1,55 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Motores</h1>
+
+
+<%= link_to image_tag('addc.svg'), new_engine_path, title: "New Engine" %>
+<div id="engines">
+        <table class="table table-bordered border-primary">
+
+          <thead>
+            <tr>
+              <th scope="col" style="width: 50px;" >Id</th>
+              <th scope="col" style="width: 250px;">Name </th>
+              <th scope="col"style="width: 600px;">Description</th>
+              <th scope="col"style="width: 50px;">Photo</th>
+              <th scope="col"style="width: 50px;">Typeequipment</th>
+              <th scope="col" style="width: 50px;" > </th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+  <% @engines.each do |engine| %>
+                <tr>
+                    <td scope="row"><%= engine.id %></td>
+                    <td><%= engine.name%></td>
+                    <td><%= engine.description%></td>
+                    <td>
+                        <% if engine.photo.attached?  %>
+                             <%=  image_tag engine.photo, size: "40x40"  %>
+                        <% else %>
+                              
+                             <%=  image_tag "1.jpg", size: "40x40" %>
+                        <% end %>
+                    
+                    </td>
+                    <td><%= engine.typeequipment.name %></td>
+                    <td> <%= link_to image_tag('view20.svg'), engine , title: "Ver Motor" %> </td>
+                </tr>
+  <% end %>
+            <tr> 
+                    
+                    <td colspan="4" >  
+                          <div class="pag-bar">
+                                <%== pagy_bootstrap_nav(@pagy)  if @pagy.pages > 1 %>
+                          </div>
+                    </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+</div>
+

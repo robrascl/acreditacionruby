@@ -1,0 +1,47 @@
+<%= form_with(model: engine) do |form| %>
+  <% if engine.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(engine.errors.count, "error") %> prohibited this engine from being saved:</h2>
+
+      <ul>
+        <% engine.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description, required: true  %>
+  </div>
+
+
+<div class="mt-3">
+    <% if engine.photo.attached?  %>
+        <%=  image_tag(engine.photo, size: "40x40")  %>
+      <% else %>
+        <% if engine.typeequipment_id? %>
+           <%=  image_tag("#{engine.typeequipment_id}.jpg", size: "40x40") %>
+        <% end %>
+    <% end %>
+</div>
+
+  <div class="mt-3">
+    <%= form.label :photo, style: "display: block" %>
+    <%= form.file_field :photo, required: true %>
+  </div>
+
+  <div class="mt-3">
+    <%= form.label :typeequipment_id, style: "display: block" %>
+    <%= form.select :typeequipment_id, Typeequipment.all.collect {|c| [c.name, c.id] } , required: true  %>
+  </div>
+
+
+
+  <div class="mt-4">
+    <%= form.submit "Grabar", class: "btn btn-success" %>
+  </div>
+<% end %>

@@ -1,0 +1,26 @@
+<div id="<%= dom_id engine %>">
+  <p>
+    <strong>Name:</strong>
+    <%= engine.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= engine.description %>
+  </p>
+
+  <p>
+    <strong>Photo:</strong>
+    <% if engine.photo.attached?  %>
+        <%=  image_tag engine.photo, size: "240x240"  %>
+      <% else %>
+        <%=  image_tag("#{engine.typeequipment_id}.jpg", size: "90x90") %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Typeequipment:</strong>
+    <%= engine.typeequipment.name %>
+  </p>
+
+</div>
