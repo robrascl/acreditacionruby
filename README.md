@@ -12,6 +12,7 @@ Things you may want to cover:
 
 * Ruby version
 ruby  3.0.0
+
 rails 7.0.7.2
 
 
@@ -26,19 +27,27 @@ development:
 
   database: jetmaintainrodrigobravo_development
   adapter: postgresql
+  
   encoding: unicode
+  
   username: postgres
+  
   password: inforcap
+  
   host: localhost
+  
   port: 5432
+  
 
 Para revisar se recomienda cambiar el equipo en el cual se va revisar la prueba
 
-  username: 
+  username:
+  
   password: 
 
 * Database creation
   rails db:create
+  
   rails db:migrate
 
 * Database initialization
